@@ -1,0 +1,23 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EveryRupee case study — Vihandu Wanniarachchi</title><meta name="description" content="How EveryRupee, a WhatsApp expense tracker, works.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css"></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap bar"><a class="brand" href="../../">Vihandu Wanniarachchi</a><nav aria-label="Main"><a href="../../">Home</a><a href="../../projects/" aria-current=page>Projects</a><a href="../../about/">About</a><a href="../../oriax/">Oriax</a></nav></div></header>
+<main id="main">
+<article class="wrap sec first prose"><p><a href="../">← All projects</a></p><h1>EveryRupee</h1><p class="status live">Active</p>
+<p class="lead">A WhatsApp-based tool for recording and reviewing personal expenses.</p>
+<h2>The problem</h2><p>Most people don’t keep an expense record because opening a separate app and filling in a form is too much effort for a Rs.400 bus fare. Chat is already open all day. EveryRupee brings expense tracking to the place people already are.</p>
+<h2>What it does</h2><ul><li>Records an expense from a plain message such as “Add 400 to bus”.</li><li>Confirms what it recorded, so mistakes are visible straight away.</li><li>Produces a monthly summary with the total and a breakdown by category.</li><li>Lets the user undo the last entry.</li></ul>
+<h2>Architecture</h2><svg viewBox="0 0 760 120" role="img" aria-labelledby="dt dd" class="diagram"><title id="dt">EveryRupee message flow</title><desc id="dd">A WhatsApp message goes through the WhatsApp Business API to the backend, which parses it, records the transaction in the database, and replies to the user.</desc>
+<g font-family="IBM Plex Sans,sans-serif" font-size="14" text-anchor="middle" fill="#e8e6e1"><g fill="none" stroke="#6fb3b8" stroke-width="1.5"><rect x="4" y="30" width="130" height="60" rx="4"/><rect x="164" y="30" width="130" height="60" rx="4"/><rect x="324" y="30" width="130" height="60" rx="4"/><rect x="484" y="30" width="130" height="60" rx="4"/><rect x="644" y="30" width="112" height="60" rx="4"/></g>
+<text x="69" y="65">User on WhatsApp</text><text x="229" y="65">WhatsApp API</text><text x="389" y="65">Backend: parse</text><text x="549" y="65">Database</text><text x="700" y="65">Reply</text></g>
+<g stroke="#a3a7ad" stroke-width="1.5"><path d="M134 60h30M294 60h30M454 60h30M614 60h30"/></g></svg><p>A message reaches the backend through the WhatsApp Business API. The backend interprets the text, stores the transaction, and sends back a confirmation or summary.</p>
+<h2>Implementation</h2><p>The core work is in the backend: receiving messages reliably, turning free text into an amount and a category, storing transactions, and aggregating them for summaries. Keeping the commands short keeps the parsing predictable.</p>
+<h2>Evidence</h2><figure class="media tall"><video controls preload="none" playsinline poster="../../assets/img/everyrupee.jpg"><source src="../../assets/video/everyrupee.mp4" type="video/mp4"></video><figcaption>Recording from a phone: add an expense, see the confirmation, request the July summary (Rs.407 total: bus Rs.400, domain Rs.7), then undo.</figcaption></figure>
+<p>The recording shows the working product end to end on WhatsApp. <a href="https://github.com/vihandu-wan">Source code on GitHub</a>.</p></article>
+<section class="wrap sec cta"><h2>Let’s discuss a problem</h2><p>Have a process that is difficult to manage, repetitive, or poorly supported by your existing software? I’d be happy to understand it and explore whether a software solution makes sense.</p>
+<p><a class="btn" href="mailto:wvihandu@gmail.com">Email wvihandu@gmail.com</a></p></section></main>
+<footer><div class="wrap foot"><p>© 2026 Vihandu Wanniarachchi</p><p><a href="mailto:wvihandu@gmail.com">wvihandu@gmail.com</a> · <a href="https://github.com/vihandu-wan">GitHub</a> · <a href="https://www.linkedin.com/in/vihandu-wanniarachchi-964b32240">LinkedIn</a></p></div></footer>
+</body></html>
